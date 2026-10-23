@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "filename": "test_image.jpg",
+    "file_path": "/home/bala/image-forensics/test_image.jpg",
+    "timestamp": "2026-06-02T21:58:17.401235",
+    "basic_info": {
+      "format": "JPEG",
+      "mode": "RGB",
+      "width": 800,
+      "height": 600,
+      "dimensions": "800 x 600",
+      "aspect_ratio": 1.33,
+      "dpi": [
+        72,
+        72
+      ]
+    },
+    "exif": {
+      "ExifOffset": "156",
+      "Make": "Canon",
+      "Model": "EOS 80D",
+      "Software": "Adobe Photoshop CS6",
+      "Copyright": "Copyright 2024",
+      "Artist": "John Doe"
+    },
+    "gps": {},
+    "iptc": {},
+    "xmp": {},
+    "software": {
+      "Software": "b'Adobe Photoshop CS6'",
+      "Make": "b'Canon'",
+      "Model": "b'EOS 80D'",
+      "Artist": "b'John Doe'",
+      "Copyright": "b'Copyright 2024'"
+    },
+    "file_info": {
+      "size_bytes": 8591,
+      "size_human": "8.39 KB",
+      "created": "2026-06-02T21:48:48.179506",
+      "modified": "2026-06-02T21:48:48.179506",
+      "accessed": "2026-06-02T21:52:18.878136"
+    },
+    "thumbnail": null
+  },
+  "analysis": {
+    "filename": "test_image.jpg",
+    "timestamp_analyzed": "2026-06-02T21:58:17.411598",
+    "risk_level": "medium",
+    "risk_score": 9,
+    "anomalies": [
+      {
+        "type": "Multiple Software",
+        "severity": "medium",
+        "description": "Image processed by multiple software: Adobe Photoshop, Detected: photoshop, Photos, Detected: adobe"
+      },
+      {
+        "type": "Make/Model Mismatch",
+        "severity": "low",
+        "description": "Make 'Canon' and Model 'EOS 80D' may be inconsistent"
+      },
+      {
+        "type": "Potential Manipulation",
+        "severity": "medium",
+        "description": "Multiple manipulation indicators detected"
+      }
+    ],
+    "findings": [
+      "No GPS data present",
+      "Editing software detected: Adobe Photoshop, Detected: photoshop, Photos, Detected: adobe",
+      "Image heavily compressed: 0.018 bytes/pixel",
+      "Missing expected metadata: DateTime",
+      "Aspect ratio: 4:3 (Standard)"
+    ],
+    "metadata_summary": {
+      "total_exif_fields": 6,
+      "has_gps": false,
+      "has_editing_software": true,
+      "anomalies_count": 3,
+      "findings_count": 5,
+      "image_dimensions": "800 x 600"
+    },
+    "timeline": {
+      "file_created": "2026-06-02T21:48:48.179506",
+      "file_modified": "2026-06-02T21:48:48.179506",
+      "file_accessed": "2026-06-02T21:52:18.878136"
+    },
+    "indicators": {
+      "editing_software": [
+        "Adobe Photoshop",
+        "Detected: photoshop",
+        "Photos",
+        "Detected: adobe"
+      ],
+      "manipulation": [
+        "Software: Adobe Photoshop CS6",
+        "EXIF Software field present (possible editing)"
+      ]
+    }
+  },
+  "hashes": {
+    "md5": "8d9042924e9c916cc2e1bd6d92a0870b",
+    "sha1": "7bbf261c53afc1709deb8fad9b2f2701ba61c61c",
+    "sha256": "9d1947bc6eaf4859f479024da0763fb6892e24000e0ac8787e0636d784e88eb5",
+    "sha512": "a61af4ee551e238976b0991b53f00f0c4178612c740fb54395f63538a6e898ff622040f4c15b280c9bf9cecb5712e38dce55f82979d505d9d3d15ab32b6c42a6"
+  }
+}

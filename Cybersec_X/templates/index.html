@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberSec Dashboard — Digital Forensics Toolkit</title>
+  <meta name="description" content="Professional digital forensics and security analysis workbench: Image Steganography, OWASP Security Headers Scanner, and TLS/SSL Certificate Inspector." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ SIDEBAR ═══════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark" aria-hidden="true">&#x2B21;</div>
+    <div class="logo-text">
+      <span class="logo-main">CYBER</span>
+      <span class="logo-sub">SEC</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section-title">Diagnostics</div>
+  <nav class="sidebar-nav" aria-label="Main Navigation">
+    <button class="nav-btn active" id="nav-home" onclick="navigate('home')" title="Overview">
+      <span class="nav-icon" aria-hidden="true">&#x25C8;</span>
+      <span class="nav-label">Overview</span>
+    </button>
+    <button class="nav-btn" id="nav-steg" onclick="navigate('steg')" title="Steganography">
+      <span class="nav-icon" aria-hidden="true">&#x25C9;</span>
+      <span class="nav-label">Steganography</span>
+    </button>
+    <button class="nav-btn" id="nav-scanner" onclick="navigate('scanner')" title="Web Scanner">
+      <span class="nav-icon" aria-hidden="true">&#x25CE;</span>
+      <span class="nav-label">Web Scanner</span>
+    </button>
+    <button class="nav-btn" id="nav-ssl" onclick="navigate('ssl')" title="SSL Checker">
+      <span class="nav-icon" aria-hidden="true">&#x25C7;</span>
+      <span class="nav-label">SSL Checker</span>
+    </button>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="env-info">
+      <div class="env-row">
+        <span class="env-label">Host</span>
+        <span class="env-value">127.0.0.1:5000</span>
+      </div>
+      <div class="env-row">
+        <span class="env-label">Engine</span>
+        <span class="env-value">Flask / Python</span>
+      </div>
+      <div class="env-status-indicator">
+        <span class="status-indicator-dot"></span>
+        <span>Environment Operational</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════ TOPBAR ═══════════════════════════════════ -->
+<header class="topbar">
+  <div class="topbar-left">
+    <button class="menu-toggle" id="menu-toggle-btn" onclick="toggleSidebar()" aria-label="Toggle navigation menu">
+      <svg class="ui-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M2 3.5h12v1.5H2V3.5zm0 3.75h12v1.5H2v-1.5zm0 3.75h12v1.5H2V11z"/>
+      </svg>
+    </button>
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <span class="breadcrumb-root">CyberSec</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-page" id="breadcrumb-page">Overview</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-chip">
+      <span class="chip-label">NODE</span>
+      <span class="chip-val">PORT 5000</span>
+    </div>
+    <div class="topbar-clock" id="clock" title="System Time">00:00:00</div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════ MAIN CONTENT ═══════════════════════════════════ -->
+<main class="main-content">
+
+  <!-- ── 1. HOME / OVERVIEW ── -->
+  <section class="section active" id="section-home">
+    <div class="workbench-header">
+      <div class="workbench-title-group">
+        <h1 class="workbench-title">Forensic Analysis Workbench</h1>
+        <p class="workbench-desc">
+          Modular cybersecurity inspection console for image bitplane steganography, OWASP security header validation, and TLS/SSL certificate audits.
+        </p>
+      </div>
+      <div class="workbench-metrics">
+        <div class="metric-card">
+          <div class="metric-num">3</div>
+          <div class="metric-label">Active Modules</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">16 MB</div>
+          <div class="metric-label">Max File Size</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">TLS 1.3</div>
+          <div class="metric-label">Handshake Ready</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+      <!-- Tool 1: Steganography -->
+      <article class="tool-panel-card" onclick="navigate('steg')">
+        <div class="tool-header-row">
+          <div class="tool-badge-icon steg-accent">&#x25C9;</div>
+          <div class="tool-status-tag">Ready</div>
+        </div>
+        <h2 class="tool-title">Image Steganography</h2>
+        <p class="tool-desc">
+          Embed and extract secret text payloads within RGB pixel matrices using Least Significant Bit (LSB) steganography without visible perceptual degradation.
+        </p>
+        <div class="tool-specs">
+          <div class="spec-row">
+            <span class="spec-k">Supported formats</span>
+            <span class="spec-v">PNG, JPG, BMP, WebP</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Algorithm</span>
+            <span class="spec-v">3-Channel LSB Injection</span>
+          </div>
+        </div>
+        <div class="tool-action-row">
+          <span class="action-link">Open Steganography Studio &rarr;</span>
+        </div>
+      </article>
+
+      <!-- Tool 2: Web Scanner -->
+      <article class="tool-panel-card" onclick="navigate('scanner')">
+        <div class="tool-header-row">
+          <div class="tool-badge-icon scanner-accent">&#x25CE;</div>
+          <div class="tool-status-tag">Ready</div>
+        </div>
+        <h2 class="tool-title">Web Security Scanner</h2>
+        <p class="tool-desc">
+          Probe remote endpoints to detect missing hardening headers, dangerous open directory indices, and server software banner information leaks.
+        </p>
+        <div class="tool-specs">
+          <div class="spec-row">
+            <span class="spec-k">Standards</span>
+            <span class="spec-v">CSP, HSTS, XFO, RP</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Vulnerability checks</span>
+            <span class="spec-v">Directory Indexing, Server Info</span>
+          </div>
+        </div>
+        <div class="tool-action-row">
+          <span class="action-link">Open Security Scanner &rarr;</span>
+        </div>
+      </article>
+
+      <!-- Tool 3: SSL Inspector -->
+      <article class="tool-panel-card" onclick="navigate('ssl')">
+        <div class="tool-header-row">
+          <div class="tool-badge-icon ssl-accent">&#x25C7;</div>
+          <div class="tool-status-tag">Ready</div>
+        </div>
+        <h2 class="tool-title">SSL Certificate Inspector</h2>
+        <p class="tool-desc">
+          Connect directly via port 443 to inspect X.509 certificate chains, compute remaining expiration lifetime, and review Subject Alternative Names (SANs).
+        </p>
+        <div class="tool-specs">
+          <div class="spec-row">
+            <span class="spec-k">Verification</span>
+            <span class="spec-v">Expiration, CA, Handshake</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-k">Protocol audit</span>
+            <span class="spec-v">TLS 1.2 / TLS 1.3 Detection</span>
+          </div>
+        </div>
+        <div class="tool-action-row">
+          <span class="action-link">Open Certificate Inspector &rarr;</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Real Operational Activity Stream -->
+    <div class="activity-container">
+      <div class="activity-header">
+        <div class="activity-title-group">
+          <span class="activity-symbol" aria-hidden="true">[LOG]</span>
+          <span class="activity-title">Operational Audit Log</span>
+        </div>
+        <button class="clear-log-btn" onclick="clearActivityLog()" title="Clear log entries">Clear Log</button>
+      </div>
+      <div class="activity-stream" id="log-body" role="log" aria-live="polite">
+        <!-- Dynamically populated via addLog() in main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. STEGANOGRAPHY STUDIO ── -->
+  <section class="section" id="section-steg">
+    <div class="section-top">
+      <div>
+        <h1 class="section-title"><span class="title-glyph steg-accent" aria-hidden="true">&#x25C9;</span> Image Steganography</h1>
+        <p class="section-subtitle">Encode concealed text data into raw image bitplanes or decode hidden messages using Least Significant Bit (LSB) extraction.</p>
+      </div>
+      <div class="mode-toggle-group" role="tablist" aria-label="Steganography Mode">
+        <button class="mode-toggle-btn active" id="mode-encode" onclick="setStegMode('encode')" role="tab" aria-selected="true">
+          Encode Message
+        </button>
+        <button class="mode-toggle-btn" id="mode-decode" onclick="setStegMode('decode')" role="tab" aria-selected="false">
+          Decode Message
+        </button>
+      </div>
+    </div>
+
+    <div class="split-workspace">
+      <!-- Input Column -->
+      <div class="workspace-column">
+        <div class="workbench-box">
+          <h2 class="box-title">Source Carrier Image</h2>
+
+          <div class="drop-zone" id="steg-drop-zone"
+               ondragover="handleDragOver(event)"
+               ondragleave="handleDragLeave(event)"
+               ondrop="handleDrop(event, 'steg')">
+            <div class="drop-content" id="steg-drop-content">
+              <div class="drop-icon" aria-hidden="true">&#x2B21;</div>
+              <p class="drop-primary-text">Drag and drop carrier image here</p>
+              <p class="drop-sub-text">PNG, JPG, BMP, WebP up to 16 MB</p>
+              <label class="btn-file-select" for="steg-file-input">Select Image File</label>
+              <input type="file" id="steg-file-input" accept="image/*" onchange="handleFileSelect(event,'steg')" hidden />
+            </div>
+            <img id="steg-preview" class="image-preview hidden" alt="Carrier image preview" />
+          </div>
+
+          <!-- Capacity Meter -->
+          <div class="capacity-container hidden" id="capacity-container">
+            <div class="capacity-header-row">
+              <span class="capacity-info-text" id="capacity-label">Calculating capacity...</span>
+              <span class="capacity-percentage" id="capacity-used">0%</span>
+            </div>
+            <div class="capacity-bar-track">
+              <div class="capacity-bar-progress" id="capacity-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Encode Form -->
+          <div id="encode-fields">
+            <div class="input-field-group">
+              <div class="field-label-row">
+                <label class="input-label" for="secret-message">Secret Message Payload</label>
+                <div class="char-counter"><span id="char-count">0</span> characters</div>
+              </div>
+              <textarea class="form-textarea" id="secret-message" rows="5"
+                        placeholder="Type or paste the secret message to conceal inside the carrier image..."
+                        oninput="updateCapacity()"></textarea>
+            </div>
+            <button class="action-submit-btn" id="encode-btn" onclick="encodeMessage()" disabled>
+              <span class="btn-symbol">&#x2B21;</span> Encode &amp; Generate Download
+            </button>
+          </div>
+
+          <!-- Decode Form -->
+          <div id="decode-fields" class="hidden">
+            <p class="field-guidance-note">
+              Upload an image that contains an LSB hidden message. The decoder will extract bit values until the termination sentinel is reached.
+            </p>
+            <button class="action-submit-btn" id="decode-btn" onclick="decodeMessage()" disabled>
+              <span class="btn-symbol">&#x25C9;</span> Extract Hidden Message
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Column -->
+      <div class="workspace-column">
+        <div class="workbench-box results-box" id="steg-result-panel">
+          <div class="empty-results-state">
+            <div class="empty-state-icon" aria-hidden="true">&#x25C8;</div>
+            <div class="empty-state-title">Awaiting Action</div>
+            <p class="empty-state-desc">Select a carrier image and provide a message to generate an encoded image or extract hidden payloads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. WEB SECURITY SCANNER ── -->
+  <section class="section" id="section-scanner">
+    <div class="section-top">
+      <div>
+        <h1 class="section-title"><span class="title-glyph scanner-accent" aria-hidden="true">&#x25CE;</span> Web Security Scanner</h1>
+        <p class="section-subtitle">Audit target domains and URLs for HTTP security headers, directory exposure, and technology disclosure.</p>
+      </div>
+    </div>
+
+    <div class="split-workspace">
+      <!-- Input Column -->
+      <div class="workspace-column">
+        <div class="workbench-box">
+          <h2 class="box-title">Target Inspection Parameters</h2>
+
+          <div class="input-field-group">
+            <label class="input-label" for="scan-url">Target Endpoint URL</label>
+            <div class="input-action-row">
+              <input type="text" class="form-text-input" id="scan-url"
+                     placeholder="https://audit-target.org"
+                     onkeydown="if(event.key==='Enter') runScan()" />
+              <button class="action-submit-btn compact-btn" id="scan-btn" onclick="runScan()">
+                <span class="btn-symbol">&#x25CE;</span> Run Scan
+              </button>
+            </div>
+            <p class="field-hint">Specify an HTTP or HTTPS endpoint. Missing schemes default to HTTPS.</p>
+          </div>
+
+          <!-- Quick Test Targets -->
+          <div class="quick-targets-row">
+            <span class="quick-targets-label">Test Samples:</span>
+            <button class="sample-tag-btn" onclick="setScanSample('https://github.com')">github.com</button>
+            <button class="sample-tag-btn" onclick="setScanSample('https://cloudflare.com')">cloudflare.com</button>
+            <button class="sample-tag-btn" onclick="setScanSample('https://mozilla.org')">mozilla.org</button>
+          </div>
+
+          <div class="reference-card-list">
+            <div class="reference-item">
+              <div class="ref-symbol" aria-hidden="true">[HSTS]</div>
+              <div>
+                <div class="ref-title">OWASP Hardening Headers</div>
+                <div class="ref-desc">Checks Content-Security-Policy, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy.</div>
+              </div>
+            </div>
+            <div class="reference-item">
+              <div class="ref-symbol" aria-hidden="true">[DIR]</div>
+              <div>
+                <div class="ref-title">Directory Indexing Checks</div>
+                <div class="ref-desc">Detects unintentional open directory listings that expose raw application or server assets.</div>
+              </div>
+            </div>
+            <div class="reference-item">
+              <div class="ref-symbol" aria-hidden="true">[SRV]</div>
+              <div>
+                <div class="ref-title">Server Fingerprint Leaks</div>
+                <div class="ref-desc">Identifies version banners disclosed in Server and X-Powered-By response headers.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Column -->
+      <div class="workspace-column">
+        <div class="workbench-box results-box" id="scanner-result-panel">
+          <div class="empty-results-state">
+            <div class="empty-state-icon" aria-hidden="true">&#x25CE;</div>
+            <div class="empty-state-title">No Scan Results</div>
+            <p class="empty-state-desc">Enter a target URL and dispatch the scan to evaluate security header posture and exposure risks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. SSL CERTIFICATE INSPECTOR ── -->
+  <section class="section" id="section-ssl">
+    <div class="section-top">
+      <div>
+        <h1 class="section-title"><span class="title-glyph ssl-accent" aria-hidden="true">&#x25C7;</span> SSL Certificate Inspector</h1>
+        <p class="section-subtitle">Examine remote TLS handshake certificates, validate expiration dates, and inspect Subject Alternative Names (SANs).</p>
+      </div>
+    </div>
+
+    <div class="split-workspace">
+      <!-- Input Column -->
+      <div class="workspace-column">
+        <div class="workbench-box">
+          <h2 class="box-title">Domain Handshake Parameters</h2>
+
+          <div class="input-field-group">
+            <label class="input-label" for="ssl-domain">Host Domain Name</label>
+            <div class="input-action-row">
+              <input type="text" class="form-text-input" id="ssl-domain"
+                     placeholder="audit-target.org"
+                     onkeydown="if(event.key==='Enter') checkSSL()" />
+              <button class="action-submit-btn compact-btn" id="ssl-btn" onclick="checkSSL()">
+                <span class="btn-symbol">&#x25C7;</span> Inspect Cert
+              </button>
+            </div>
+            <p class="field-hint">Enter host domain without protocols or paths (e.g., github.com).</p>
+          </div>
+
+          <!-- Quick Test Domains -->
+          <div class="quick-targets-row">
+            <span class="quick-targets-label">Test Samples:</span>
+            <button class="sample-tag-btn" onclick="setSSLSample('github.com')">github.com</button>
+            <button class="sample-tag-btn" onclick="setSSLSample('google.com')">google.com</button>
+            <button class="sample-tag-btn" onclick="setSSLSample('wikipedia.org')">wikipedia.org</button>
+          </div>
+
+          <div class="reference-card-list">
+            <div class="reference-item">
+              <div class="ref-symbol" aria-hidden="true">[X509]</div>
+              <div>
+                <div class="ref-title">X.509 Certificate Chain</div>
+                <div class="ref-desc">Inspects Subject Common Name, Certificate Authority issuer, and serial numbers.</div>
+              </div>
+            </div>
+            <div class="reference-item">
+              <div class="ref-symbol" aria-hidden="true">[EXP]</div>
+              <div>
+                <div class="ref-title">Expiration &amp; Renewal Risk</div>
+                <div class="ref-desc">Calculates remaining active days with clear validity indicators (Valid, Expiring Soon, Expired).</div>
+              </div>
+            </div>
+            <div class="reference-item">
+              <div class="ref-symbol" aria-hidden="true">[SAN]</div>
+              <div>
+                <div class="ref-title">Multi-Domain SAN Coverage</div>
+                <div class="ref-desc">Parses Subject Alternative Names to map all domains covered by the TLS certificate.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Column -->
+      <div class="workspace-column">
+        <div class="workbench-box results-box" id="ssl-result-panel">
+          <div class="empty-results-state">
+            <div class="empty-state-icon" aria-hidden="true">&#x25C7;</div>
+            <div class="empty-state-title">No Certificate Inspected</div>
+            <p class="empty-state-desc">Enter a domain name to execute a socket TLS handshake and display detailed certificate metadata.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════ LOADING OVERLAY ═══════════════════════════════════ -->
+<div class="loading-overlay hidden" id="loading-overlay" aria-hidden="true">
+  <div class="loading-card">
+    <div class="loading-spinner"></div>
+    <div class="loading-text" id="loading-text">Processing request...</div>
+  </div>
+</div>
+
+<script src="/static/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Forensics Report - test_image.jpg</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #eee; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #00d4ff; border-bottom: 2px solid #00d4ff; padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { color: #ff6b6b; margin: 20px 0 10px; font-size: 1.3em; }
+        h3 { color: #ffd93d; margin: 15px 0 8px; font-size: 1.1em; }
+        .card { background: #16213e; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #0f3460; }
+        th { background: #0f3460; color: #00d4ff; }
+        .risk-critical { color: #ff4444; font-weight: bold; }
+        .risk-high { color: #ff6b6b; font-weight: bold; }
+        .risk-medium { color: #ffd93d; font-weight: bold; }
+        .risk-low { color: #6bff6b; font-weight: bold; }
+        .risk-minimal { color: #888; }
+        .anomaly { background: #2d1f1f; border-left: 4px solid #ff4444; padding: 10px; margin: 5px 0; }
+        .finding { background: #1f2d2d; border-left: 4px solid #00d4ff; padding: 10px; margin: 5px 0; }
+        .hash { font-family: monospace; font-size: 0.9em; background: #0f3460; padding: 5px 10px; border-radius: 4px; word-break: break-all; }
+        .metadata-key { color: #ff44ff; }
+        .metadata-value { color: #fff; }
+        .timestamp { color: #888; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Image Forensics Analysis Report</h1>
+        <p class="timestamp">Generated: 2026-06-02 22:03:52</p>
+
+        <div class="card">
+            <h2>File Information</h2>
+            <table>
+                <tr><th>Property</th><th>Value</th></tr>
+                <tr><td>Filename</td><td>test_image.jpg</td></tr>
+                <tr><td>File Path</td><td>/home/bala/image-forensics/test_image.jpg</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Cryptographic Hashes (Chain of Custody)</h2>
+            <table>
+                <tr><th>Algorithm</th><th>Hash Value</th></tr>
+                <tr><td>MD5</td><td><span class="hash">8d9042924e9c916cc2e1bd6d92a0870b</span></td></tr>
+                <tr><td>SHA1</td><td><span class="hash">7bbf261c53afc1709deb8fad9b2f2701ba61c61c</span></td></tr>
+                <tr><td>SHA256</td><td><span class="hash">9d1947bc6eaf4859f479024da0763fb6892e24000e0ac8787e0636d784e88eb5</span></td></tr>
+                <tr><td>SHA512</td><td><span class="hash">a61af4ee551e238976b0991b53f00f0c4178612c740fb54395f63538a6e898ff622040f4c15b280c9bf9cecb5712e38dce55f82979d505d9d3d15ab32b6c42a6</span></td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Risk Assessment</h2>
+            <p>Risk Level: <span class="risk-medium">MEDIUM</span></p>
+            <p>Risk Score: 9</p>
+        </div>
+<div class="card"><h2>⚠️ Anomalies Detected</h2>
+                <div class="anomaly">
+                    <strong>[MEDIUM]</strong> Multiple Software: Image processed by multiple software: Adobe Photoshop, Detected: adobe, Photos, Detected: photoshop
+                </div>
+                <div class="anomaly">
+                    <strong>[LOW]</strong> Make/Model Mismatch: Make 'Canon' and Model 'EOS 80D' may be inconsistent
+                </div>
+                <div class="anomaly">
+                    <strong>[MEDIUM]</strong> Potential Manipulation: Multiple manipulation indicators detected
+                </div></div><div class="card"><h2>📋 Findings</h2><div class="finding">No GPS data present</div><div class="finding">Editing software detected: Adobe Photoshop, Detected: adobe, Photos, Detected: photoshop</div><div class="finding">Image heavily compressed: 0.018 bytes/pixel</div><div class="finding">Missing expected metadata: DateTime</div><div class="finding">Aspect ratio: 4:3 (Standard)</div></div><div class="card"><h2>Image Properties</h2><table><tr><td class="metadata-key">format</td><td class="metadata-value">JPEG</td></tr><tr><td class="metadata-key">mode</td><td class="metadata-value">RGB</td></tr><tr><td class="metadata-key">width</td><td class="metadata-value">800</td></tr><tr><td class="metadata-key">height</td><td class="metadata-value">600</td></tr><tr><td class="metadata-key">dimensions</td><td class="metadata-value">800 x 600</td></tr><tr><td class="metadata-key">aspect_ratio</td><td class="metadata-value">1.33</td></tr><tr><td class="metadata-key">dpi</td><td class="metadata-value">(72, 72)</td></tr></table></div><div class="card"><h2>EXIF Metadata</h2><table><tr><th>Tag</th><th>Value</th></tr><tr><td class="metadata-key">ExifOffset</td><td class="metadata-value">156</td></tr><tr><td class="metadata-key">Make</td><td class="metadata-value">Canon</td></tr><tr><td class="metadata-key">Model</td><td class="metadata-value">EOS 80D</td></tr><tr><td class="metadata-key">Software</td><td class="metadata-value">Adobe Photoshop CS6</td></tr><tr><td class="metadata-key">Copyright</td><td class="metadata-value">Copyright 2024</td></tr><tr><td class="metadata-key">Artist</td><td class="metadata-value">John Doe</td></tr></table></div><div class="card"><h2>Software/Processing History</h2><table><tr><td class="metadata-key">Software</td><td class="metadata-value">b'Adobe Photoshop CS6'</td></tr><tr><td class="metadata-key">Make</td><td class="metadata-value">b'Canon'</td></tr><tr><td class="metadata-key">Model</td><td class="metadata-value">b'EOS 80D'</td></tr><tr><td class="metadata-key">Artist</td><td class="metadata-value">b'John Doe'</td></tr><tr><td class="metadata-key">Copyright</td><td class="metadata-value">b'Copyright 2024'</td></tr></table></div>
+        <div class="card">
+            <p class="timestamp">Analysis completed: 2026-06-02T22:03:52.748016</p>
+        </div>
+    </div>
+</body>
+</html>

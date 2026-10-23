@@ -1,0 +1,47 @@
+IMAGE FORENSICS ANALYZER - INSTALLATION INSTRUCTIONS
+===================================================
+
+Follow these simple steps to install and set up the tool:
+
+STEP 1: Create a Python virtual environment
+-------------------------------------------
+Run the following command to create a virtual environment:
+  python3 -m venv venv
+
+STEP 2: Activate the virtual environment
+-----------------------------------------
+Activate it before installing packages:
+  source venv/bin/activate
+
+STEP 3: Install the required packages
+-------------------------------------
+Install the Python dependencies from requirements.txt:
+  pip install -r requirements.txt
+
+*NOTE FOR LINUX USERS: 
+If you get a python-magic error, install the system library:
+  sudo apt-get install libmagic1
+
+STEP 4: Install the image-forensics command globally
+---------------------------------------------------
+Install the tool in editable development mode:
+  pip install -e .
+
+STEP 5: Verify the installation
+-------------------------------
+Run the test suite to make sure everything works:
+  python3 -m unittest discover -s image_forensics -v
+
+
+HOW TO RUN THE TOOL
+===================
+Once installed, you can use the CLI:
+
+1. Analyze an image:
+   image-forensics analyze test_image.jpg
+
+2. Generate an HTML report:
+   image-forensics report test_image.jpg -o report.html --format html
+
+3. Get file hashes:
+   image-forensics hash test_image.jpg
